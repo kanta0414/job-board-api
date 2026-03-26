@@ -105,11 +105,7 @@ production:
     <% end %>
   cache:
     <<: *primary_production
-    # デプロイ時に複数DBを用意しなくても起動・migrateが通るよう、単一DBに寄せます。
-    database: job_board_api_production
   queue:
     <<: *primary_production
-    database: job_board_api_production
   cable:
     <<: *primary_production
-    database: job_board_api_production
