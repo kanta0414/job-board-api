@@ -1,7 +1,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
 
-    origins 'https://job-board-front-iota.vercel.app'
+    origins '*',
 
     # ローカル開発も一緒に使いたい場合はコメントを外す
     # origins 'https://job-board-front-iota.vercel.app',
@@ -16,6 +16,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
       expose: ['Authorization', 'Content-Type'],
-      max_age: 600
+      credentials: true,
+      max_age: 86400
   end
 end
